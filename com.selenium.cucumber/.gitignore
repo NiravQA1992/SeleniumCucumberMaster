@@ -1,0 +1,10 @@
+.DS_Store 
+.classpath 
+.settings
+.project
+/bin/
+#/target/
+test-output/
+test-output/junitreports/
+/target/
+/resources/screenshot/
