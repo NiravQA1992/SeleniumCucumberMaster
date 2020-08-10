@@ -18,7 +18,7 @@ import cucumber.api.java.en.And;
  * examples here:
  * https://github.com/NiravQA1992/SeleniumCucumberMaster/blob/master/com.selenium.cucumber/doc/canned_steps.md
  * 
- * @author estefafdez
+ * @author Nirav Panchal
  */
 public class ScreenshotSteps {
 	WebDriver driver;
