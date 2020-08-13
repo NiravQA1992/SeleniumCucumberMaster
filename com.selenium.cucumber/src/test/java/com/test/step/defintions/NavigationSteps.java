@@ -31,7 +31,7 @@ public class NavigationSteps {
 	}
 
 	/** Navigate to a specified URL */
-	@When("^the user navigate to \"([^\"]*)\"$")
+	@When("^the user navigate to \"([^\"]*)\" page$")
 	public void navigateTo(String url) {
 		log.info("Navigate to: " + url);
 		driver.navigate().to(url);
