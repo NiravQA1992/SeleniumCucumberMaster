@@ -40,7 +40,7 @@ public class Hooks {
 			log.info("[ Scenario ] - "+scenario.getName());
 			log.info("***********************************************************************************************************");
 	    }	 
-	     
+		
 	 	@After
 	 	/**
 	     * Embed a screenshot in test report if test is marked as failed

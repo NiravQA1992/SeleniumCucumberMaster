@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import com.selenium.configure.environment.PropertiesHandler;
+import com.test.valueprovider.FullNameProvder;
 
 import cucumber.api.java.en.When;
 
@@ -37,6 +38,18 @@ public class InputSteps {
 		input.sendKeys(text);
 	}
 
+	@When("^the user enter Random Name into input field having (.+) \"([^\"]*)\"$")
+	public void inputRandomText(String type, String key) throws Exception {
+		By element = PropertiesHandler.getCompleteElement(type, key);
+		WebElement input = driver.findElement(element);
+		input.click();
+		input.clear();
+		FullNameProvder provider = new FullNameProvder();
+		String RandomName = provider.CreateName();
+		log.info("Sending text: " + RandomName + "into element" + element);
+		input.sendKeys(RandomName);
+	}
+	
 	/** Enter a text into an input field element slowly */
 	@When("^the user slowly enter \"([^\"]*)\" into input field having (.+) \"([^\"]*)\"$")
 	public void slowSendKeys(String text, String type, String key) throws Exception {
