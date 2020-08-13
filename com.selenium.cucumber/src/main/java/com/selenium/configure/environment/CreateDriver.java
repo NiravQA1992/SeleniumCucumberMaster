@@ -19,9 +19,9 @@ public class CreateDriver {
 	private static String os;
 	private static String logLevel;
 	private static String baseURL;
-	private static String properties = "test.properties";
+	private static String properties = "Configuration.properties";
 	private static Properties prop = new Properties();
-	private static InputStream in = WebDriverFactory.class.getResourceAsStream("/test.properties");
+	private static InputStream in = WebDriverFactory.class.getResourceAsStream("/Configuration.properties");
 	private static CreateDriver instance = null;
 
 	/******** Log Attribute ********/
