@@ -14,30 +14,29 @@ import org.openqa.selenium.WebDriver;
 import cucumber.api.java.en.And;
 
 /**
- * This class contains methods to allow you to take screenshots
- * More steps examples here: https://github.com/selenium-cucumber/selenium-cucumber-java/blob/master/doc/canned_steps.md
- * @author estefafdez
+ * This class contains methods to allow you to take screenshots More steps
+ * examples here:
+ * https://github.com/NiravQA1992/SeleniumCucumberMaster/blob/master/com.selenium.cucumber/doc/canned_steps.md
+ * 
+ * @author Nirav Panchal
  */
 public class ScreenshotSteps {
 	WebDriver driver;
 	/******** Log Attribute ********/
-    private static Logger log = Logger.getLogger(AssertionSteps.class);
-	
-	public ScreenshotSteps(){
-		 driver= Hooks.driver;
+	private static Logger log = Logger.getLogger(AssertionSteps.class);
+
+	public ScreenshotSteps() {
+		driver = Hooks.driver;
 	}
 
 	/** Take a screenshot */
-    @And("^the user take screenshot$")
-    public void takeScreenshot() throws IOException
-    {
-		    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm");
-		    	String screenShotName = "resources/screenshot/" + dateFormat.format(GregorianCalendar.getInstance().getTime());		
-		    	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		    	log.info("Screenshot saved as:" + screenShotName);
-		    	FileUtils.copyFile(scrFile, new File(String.format("%s.png", screenShotName)));    	
-    }
-
-	
+	@And("^the user take screenshot$")
+	public void takeScreenshot() throws IOException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm");
+		String screenShotName = "resources/screenshot/" + dateFormat.format(GregorianCalendar.getInstance().getTime());
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		log.info("Screenshot saved as:" + screenShotName);
+		FileUtils.copyFile(scrFile, new File(String.format("%s.png", screenShotName)));
+	}
 
 }
