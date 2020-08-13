@@ -18,6 +18,7 @@ public class CreateDriver {
 	private static String browser;
 	private static String os;
 	private static String logLevel;
+	private static String baseURL;
 	private static String properties = "test.properties";
 	private static Properties prop = new Properties();
 	private static InputStream in = WebDriverFactory.class.getResourceAsStream("/test.properties");
@@ -57,7 +58,7 @@ public class CreateDriver {
 			browser = prop.getProperty("browser");
 			os = prop.getProperty("os");
 			logLevel = prop.getProperty("logLevel");
-
+			baseURL = prop.getProperty("baseURL");
 		} catch (IOException e) {
 			log.error("initConfig Error", e);
 		}
@@ -74,7 +75,7 @@ public class CreateDriver {
 		/******** Clean Cookies, maximize and declare Timeout on the Driver *******/
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-
+		driver.get(baseURL);
 		return driver;
 	}
 
