@@ -62,6 +62,7 @@ public class Hooks {
 			}
 		}
 
+<<<<<<< HEAD
 		log.info(
 				"***********************************************************************************************************");
 		log.info("[ Driver Status ] - Clean and close the intance of the driver");
@@ -69,4 +70,45 @@ public class Hooks {
 				"***********************************************************************************************************");
 		driver.quit();
 	}
+=======
+		@Before
+	    /**
+	     * Delete all cookies at the start of each scenario to avoid
+	     * shared state between tests
+	     */
+	    public void initDriver() throws MalformedURLException {
+			log.info("***********************************************************************************************************");
+			log.info("[ Configuration ] - Initializing driver configuration");
+			log.info("***********************************************************************************************************");
+	    	driver = CreateDriver.initConfig();	    
+	    	
+	    	log.info("***********************************************************************************************************");
+			log.info("[ Scenario ] - "+scenario.getName());
+			log.info("***********************************************************************************************************");
+	    }	 
+		
+	 	@After
+	 	/**
+	     * Embed a screenshot in test report if test is marked as failed
+	     */
+	    public void embedScreenshot(Scenario scenario) {
+	       
+	        if(scenario.isFailed()) {
+		        try {
+		        	scenario.write("The scenario failed.");
+		        	scenario.write("Current Page URL is " + driver.getCurrentUrl());
+		            byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		            scenario.embed(screenshot, "resources/screenshot");
+		        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
+		            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+		        }	        
+	        }
+	        
+			log.info("***********************************************************************************************************");
+			log.info("[ Driver Status ] - Clean and close the intance of the driver");
+			log.info("***********************************************************************************************************");
+	        driver.quit();
+	        
+	    }
+>>>>>>> refs/remotes/origin/SeleniumCucumber1.0
 }
