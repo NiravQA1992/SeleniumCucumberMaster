@@ -134,7 +134,6 @@
 			<version>${commons-fileupload.version}</version>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>3.1.2</version>
@@ -143,11 +142,12 @@
 			<groupId>com.vimalselvam</groupId>
 			<artifactId>cucumber-extentsreport</artifactId>
 			<version>3.0.2</version>
-=======
+		</dependency>
+		<dependency>
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
 			<version>0.12</version>
->>>>>>> refs/remotes/origin/SeleniumCucumber1.0
+
 		</dependency>
 	</dependencies>
 
