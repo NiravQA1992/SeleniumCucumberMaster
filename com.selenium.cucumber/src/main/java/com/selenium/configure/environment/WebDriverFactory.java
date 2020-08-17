@@ -56,7 +56,9 @@ public class WebDriverFactory {
 			} else {
 				System.setProperty("webdriver.chrome.driver", resourceFolder + os + "/chromedriver");
 			}
+
 			driver = new ChromeDriver();
+
 		}
 
 		/******** The driver selected is Internet Explorer ********/
