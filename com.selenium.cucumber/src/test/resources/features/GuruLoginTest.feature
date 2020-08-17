@@ -1,5 +1,5 @@
-Feature: Login Test
-  Descriptio: It is verifying all tests for login page.
+Feature: User Register
+  Descriptio: It is verifying all tests for register page.
 
   Background: 
     When the user click on element having xpath "DismisLink"
@@ -8,4 +8,8 @@ Feature: Login Test
     And the user enter "vision2020" into input field having xpath "Password"
     And the user click on element having xpath "LoginButton"
 
-  Scenario: verify login page functionality
+  Scenario: verify user register page functionality
+  When the user enter "NiravP007" into input field having xpath "Username"
+  And the user enter "Niravpanchal2047@gmail.com" into input field having xpath "EmailAddress"
+  And the user enter "Automation321" into input field having xpath "RegisterPassword"
+  And the user click on element having xpath "RegisterButton"

@@ -49,7 +49,7 @@ public class InputSteps {
 		log.info("Sending text: " + RandomName + "into element" + element);
 		input.sendKeys(RandomName);
 	}
-	
+
 	/** Enter a text into an input field element slowly */
 	@When("^the user slowly enter \"([^\"]*)\" into input field having (.+) \"([^\"]*)\"$")
 	public void slowSendKeys(String text, String type, String key) throws Exception {
