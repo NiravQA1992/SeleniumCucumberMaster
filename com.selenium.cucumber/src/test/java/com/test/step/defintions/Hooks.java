@@ -29,7 +29,6 @@ public class Hooks {
 	@Before
 	public void before(Scenario scenario) {
 		this.scenario = scenario;
-		Reporter.assignAuthor("Senir Automation Engineer - Nirav Panchal");
 	}
 
 	@Before
@@ -64,15 +63,17 @@ public class Hooks {
 				scenario.write("Current Page URL is " + driver.getCurrentUrl());
 				byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 				scenario.embed(screenshot, "resources/screenshot");
-				
+
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm");
-				String screenShotName = System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + dateFormat.format(GregorianCalendar.getInstance().getTime());
+				String screenShotName = System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/"
+						+ dateFormat.format(GregorianCalendar.getInstance().getTime());
 				File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 				log.info("Screenshot saved as:" + screenShotName);
 				FileUtils.copyFile(scrFile, new File(String.format("%s.png", screenShotName)));
-				
-				//File destinationPath = new File(System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenShotName + ".png");
-				
+
+				// File destinationPath = new File(System.getProperty("user.dir") +
+				// "/target/cucumber-reports/screenshots/" + screenShotName + ".png");
+
 				Reporter.addScreenCaptureFromPath(String.format("%s.png", screenShotName).toString());
 			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
